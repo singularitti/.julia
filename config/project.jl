@@ -1,8 +1,8 @@
 #=
-filename: project.jl
-- Julia version: 1.1
-- Author: qz
-- Date: May 10, 2019
+project: Settings for a project
+- Julia version: 1.0
+- Author: singularitti
+- Date: 2019-07-18
 =#
 using Pkg
 

@@ -1,8 +1,8 @@
 #=
-filename: standalone.jl
-- Julia version: 1.1
-- Author: qz
-- Date: May 10, 2019
+standalone: Settings for a standalone REPL
+- Julia version: 1.0
+- Author: singularitti
+- Date: 2019-07-18
 =#
 using LinearAlgebra
 
@@ -40,13 +40,3 @@ end
 macro isqr_str(v)
     1 / sqrt(_parsenumber(v))
 end
-
-function subtypetree(t, level::Int = 1, indent::Int = 4)
-    level == 1 && println(t)
-    for s in subtypes(t)
-        println(join(fill(" ", level * indent)) * string(s))
-        subtypetree(s, level + 1, indent)
-    end
-end
-
-Base.://(x, f::Function) = x |> f

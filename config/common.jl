@@ -1,8 +1,8 @@
 #=
-common.jl:
+common: Settings loaded both by a project or a standalone REPL
 - Julia version: 1.0
-- Author: qz
-- Date: Jul 9, 2019
+- Author: singularitti
+- Date: 2019-07-18
 =#
 using AbstractTrees
 
