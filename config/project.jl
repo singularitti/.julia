@@ -18,13 +18,6 @@ macro loadproj()
     eval(:(using $proj))
 end
 
-macro loaddeps()
-    deps = Pkg.TOML.parsefile("Project.toml")["deps"]
-    for dep in map(Symbol, collect(keys(deps)))
-        eval(:(using $dep))
-    end
-end
-
 atreplinit() do repl
     @async try
         sleep(0.1)
