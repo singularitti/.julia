@@ -13,11 +13,6 @@ push!(LOAD_PATH, pwd())
 
 pkg"activate ."
 
-macro loadproj()
-    proj = Pkg.TOML.parsefile("Project.toml")["name"] |> Symbol
-    eval(:(using $proj))
-end
-
 atreplinit() do repl
     @async try
         sleep(0.1)
