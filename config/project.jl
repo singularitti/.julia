@@ -9,8 +9,6 @@ using Pkg
 # using Debugger
 # using Rebugger
 
-push!(LOAD_PATH, pwd())
-
 pkg"activate ."
 
 atreplinit() do repl
