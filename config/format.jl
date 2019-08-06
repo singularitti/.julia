@@ -23,7 +23,7 @@ function formatjuliafiles(path)
         for file in files
             !isjuliafile(file) && continue
             println("formatting: " * joinpath(root, file))
-            format_file(joinpath(root, file), 4, 120; overwrite = true)
+            format_file(joinpath(root, file); indent = 4, margin = 120, overwrite = true)
         end
     end
 end
