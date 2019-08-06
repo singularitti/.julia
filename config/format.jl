@@ -9,7 +9,7 @@ format: Formatting all Julia files under a package's `src` directory
 
 # Usage: You can run this file directly under your package's `src/` folder,
 # which contains all your Julia files (usually).
-using JLFmt # Download at https://github.com/domluna/JLFmt.jl
+using JuliaFormatter
 
 const IGNORED_PATHS = (".git", ".idea", ".vscode")
 
