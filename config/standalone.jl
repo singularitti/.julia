@@ -7,7 +7,7 @@ standalone: Settings for a standalone REPL
 using LinearAlgebra
 
 function Base.parse(::Type{Rational}, x::String)
-    list = split(x, '/'; keepempty=false)
+    list = split(x, '/'; keepempty = false)
     if length(list) == 1
         parse(Int, list[1]) // 1
     else
