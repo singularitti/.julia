@@ -6,8 +6,6 @@ project: Settings for a project
 =#
 using Pkg
 
-# using Debugger
-
 pkg"activate ."
 
 atreplinit() do repl
@@ -17,12 +15,5 @@ atreplinit() do repl
         @async Revise.wait_steal_repl_backend()
     catch
         @warn("Could not load Revise.")
-    end
-    
-    @async try
-        sleep(0.1)
-        @eval using Rebugger
-    catch
-        @warn "Could not load Rebugger."
     end
 end
