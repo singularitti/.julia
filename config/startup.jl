@@ -1,4 +1,3 @@
-#!/usr/local/bin/julia
 ENV["JULIA_NUM_THREADS"] = 12
 ENV["EDITOR"] = "code"
 ENV["PYTHON"] = "python"
