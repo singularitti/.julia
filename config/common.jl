@@ -4,9 +4,12 @@ common: Settings loaded both by a project or a standalone REPL
 - Author: singularitti
 - Date: 2019-07-18
 =#
-using AbstractTrees
-
-AbstractTrees.children(x::Type) = subtypes(x)
+try
+    using AbstractTrees
+    AbstractTrees.children(x::Type) = subtypes(x)
+catch
+    @warn("AbstractTrees.jl was not installed!")
+end
 
 function showall(io, x, limit = true)
     println(io, summary(x), ":")
