@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-# Put this file under `~/.julia/bin/` if you want,
-# run it with `bash ~/.julia/bin/jlfmt`
-
-# I put the format.jl under `~/.julia/config/`
-/usr/bin/env julia ~/.julia/config/format.jl
