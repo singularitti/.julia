@@ -16,4 +16,5 @@ function showall(io, x, limit = true)
     Base.print_matrix(IOContext(io, :limit => limit), x)
 end
 
-Base.://(x, f::Function) = x |> f
+# From https://discourse.julialang.org/t/how-to-pass-multiple-arguments-to-a-function-using/29117/3
+→(args, f) = f(args...)
