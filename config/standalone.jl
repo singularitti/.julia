@@ -4,8 +4,6 @@ standalone: Settings for a standalone REPL
 - Author: singularitti
 - Date: 2019-07-18
 =#
-using LinearAlgebra
-
 function Base.parse(::Type{Rational}, x::String)
     list = split(x, '/'; keepempty = false)
     if length(list) == 1

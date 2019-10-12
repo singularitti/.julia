@@ -4,6 +4,8 @@ common: Settings loaded both by a project or a standalone REPL
 - Author: singularitti
 - Date: 2019-07-18
 =#
+using LinearAlgebra
+
 try
     using AbstractTrees
     AbstractTrees.children(x::Type) = subtypes(x)
