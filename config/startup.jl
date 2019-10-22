@@ -7,5 +7,5 @@ include("common.jl")
 if isfile("Project.toml")
     include("project.jl")
 else
-    include("standalone.jl")
+    include("playground.jl")
 end
