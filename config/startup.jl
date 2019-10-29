@@ -1,6 +1,6 @@
 #!/usr/bin/env julia
-ENV["JULIA_NUM_THREADS"] = 12
-ENV["EDITOR"] = "code"
+ENV["JULIA_NUM_THREADS"] = 16
+ENV["JULIA_EDITOR"] = "code"
 ENV["PYTHON"] = "python"
 
 include("common.jl")

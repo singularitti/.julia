@@ -17,3 +17,5 @@ atreplinit() do repl
         @warn("Could not load Revise.")
     end
 end
+
+using OhMyREPL
