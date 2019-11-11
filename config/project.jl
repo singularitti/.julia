@@ -19,9 +19,11 @@ atreplinit() do repl
 end
 
 atreplinit() do repl
-    try
+    @async try
+        sleep(0.1)
         @eval using OhMyREPL
+        @async OhMyREPL.enable_autocomplete_brackets(false)
     catch e
-        @warn "error while importing OhMyREPL" e
+        @warn("error while importing OhMyREPL", e)
     end
 end
