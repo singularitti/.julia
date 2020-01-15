@@ -7,8 +7,9 @@ common: Settings loaded both by a project or a standalone REPL
 using LinearAlgebra
 
 try
-    using AbstractTrees
+    import AbstractTrees
     AbstractTrees.children(x::Type) = subtypes(x)
+    using AbstractTrees: print_tree
 catch
     @warn("AbstractTrees.jl was not installed!")
 end
