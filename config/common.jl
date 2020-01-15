@@ -11,7 +11,7 @@ try
     AbstractTrees.children(x::Type) = subtypes(x)
     using AbstractTrees: print_tree
 catch
-    @warn("AbstractTrees.jl was not installed!")
+    @warn("AbstractTrees.jl is not installed!")
 end
 
 # From https://discourse.julialang.org/t/how-to-pass-multiple-arguments-to-a-function-using/29117/3
