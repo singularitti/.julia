@@ -7,15 +7,15 @@ common: Settings loaded both by a project or a standalone REPL
 using LinearAlgebra
 
 try
-    import AbstractTrees
-    AbstractTrees.children(x::Type) = subtypes(x)
-    using AbstractTrees: print_tree
+    import Pkg
+    haskey(Pkg.installed(), "Revise") || @eval Pkg.add("Revise")
+    haskey(Pkg.installed(), "AbstractTrees") || @eval Pkg.add("AbstractTrees")
 catch
-    @warn("AbstractTrees.jl is not installed!")
 end
+
+import AbstractTrees
+AbstractTrees.children(x::Type) = subtypes(x)
+using AbstractTrees: print_tree
 
 # From https://discourse.julialang.org/t/how-to-pass-multiple-arguments-to-a-function-using/29117/3
 →(args, f) = f(args...)
-# From Slack
-const ∷ = isa
-const ∷̸ = !isa

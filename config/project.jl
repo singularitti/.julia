@@ -4,26 +4,12 @@ project: Settings for a project
 - Author: singularitti
 - Date: 2019-07-18
 =#
-using Pkg
-
-pkg"activate ."
+Pkg.activate(".")
 
 atreplinit() do repl
-    @async try
-        sleep(10)
+    try
         @eval using Revise
         @async Revise.wait_steal_repl_backend()
     catch
-        @warn("Could not load Revise.")
-    end
-end
-
-atreplinit() do repl
-    @async try
-        sleep(20)
-        @eval using OhMyREPL
-        @async OhMyREPL.enable_autocomplete_brackets(false)
-    catch e
-        @warn("error while importing OhMyREPL", e)
     end
 end
