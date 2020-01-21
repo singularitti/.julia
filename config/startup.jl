@@ -3,9 +3,38 @@ ENV["JULIA_NUM_THREADS"] = 16
 ENV["JULIA_EDITOR"] = "code"
 ENV["PYTHON"] = "python"
 
-include("common.jl")
+atreplinit() do repl
+    if isfile("Project.toml")
+        try
+            @eval using Revise
+            @async Revise.wait_steal_repl_backend()
+        catch
+            try
+                @eval using Pkg
+                haskey(Pkg.installed(), "Revise") || @eval Pkg.add("Revise")
+            catch
+            end
+        end
+    end
+end
+
+try
+    import AbstractTrees
+    AbstractTrees.children(x::Type) = subtypes(x)
+    using AbstractTrees: print_tree
+catch
+    try
+        using Pkg
+        haskey(Pkg.installed(), "AbstractTrees") || @eval Pkg.add("AbstractTrees")
+    catch
+    end
+end
+
 if isfile("Project.toml")
-    include("project.jl")
+    using Pkg
+    Pkg.activate(".")
 else
-    include("playground.jl")
+    using LinearAlgebra
+    # From https://discourse.julialang.org/t/how-to-pass-multiple-arguments-to-a-function-using/29117/3
+    →(args, f) = f(args...)
 end
