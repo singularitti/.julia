@@ -38,4 +38,5 @@ else
     # From https://discourse.julialang.org/t/how-to-pass-multiple-arguments-to-a-function-using/29117/3
     →(args, f) = f(args...)
     Base.round(x::AbstractMatrix, digits::Int = 15) = round.(x, digits = digits)
+    LinearAlgebra.dot(x, A, y) = dot(x, A*y)
 end
