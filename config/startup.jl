@@ -22,6 +22,7 @@ try
     import AbstractTrees
     AbstractTrees.children(x::Type) = subtypes(x)
     using AbstractTrees: print_tree
+    using ClearStacktrace
 catch
     try
         using Pkg
