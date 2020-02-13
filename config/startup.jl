@@ -31,6 +31,16 @@ catch
     end
 end
 
+try
+    using ClearStacktrace
+catch
+    try
+        using Pkg
+        haskey(Pkg.installed(), "ClearStacktrace") || @eval pkg"add https://github.com/jkrumbiegel/ClearStacktrace.jl"
+    catch
+    end
+end
+
 if isfile("Project.toml")
     using Pkg
     Pkg.activate(".")
