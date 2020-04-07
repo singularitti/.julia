@@ -1,17 +1,22 @@
 #!/usr/bin/env julia
 ENV["JULIA_EDITOR"] = "code"
 
+function _addpkg(pkg)
+    try
+        @eval using Pkg
+        Pkg.add(pkg)
+    catch e
+        @warn(e.msg)
+    end
+end # function _addpkg
+
 atreplinit() do repl
     if isfile("Project.toml")
         try
             @eval using Revise
             @async Revise.wait_steal_repl_backend()
         catch
-            try
-                @eval using Pkg
-                haskey(Pkg.installed(), "Revise") || @eval Pkg.add("Revise")
-            catch
-            end
+            _addpkg("Revise")
         end
         @eval using Pkg
         Pkg.activate(".")
@@ -30,19 +35,11 @@ try
     AbstractTrees.children(x::Type) = subtypes(x)
     using AbstractTrees: print_tree
 catch
-    try
-        using Pkg
-        haskey(Pkg.installed(), "AbstractTrees") || @eval Pkg.add("AbstractTrees")
-    catch
-    end
+    _addpkg("AbstractTrees")
 end
 
 try
     using ClearStacktrace
 catch
-    try
-        using Pkg
-        haskey(Pkg.installed(), "ClearStacktrace") || @eval pkg"add https://github.com/jkrumbiegel/ClearStacktrace.jl"
-    catch
-    end
+    _addpkg("ClearStacktrace")
 end
