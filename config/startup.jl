@@ -8,27 +8,19 @@ function _addpkg(pkg)
     catch e
         @warn(e.msg)
     end
-end # function _addpkg
+end
 
 if isfile("Project.toml")
     using Pkg
     Pkg.activate(".")
-
     try
         using Revise
     catch
         _addpkg("Revise")
     end
-
-    try
-        using ClearStacktrace
-    catch
-        _addpkg("ClearStacktrace")
-    end
 else
     using LinearAlgebra
-    # From https://discourse.julialang.org/t/how-to-pass-multiple-arguments-to-a-function-using/29117/3
-    →(args, f) = f(args...)
+    →(args, f) = f(args...)  # From https://discourse.julialang.org/t/how-to-pass-multiple-arguments-to-a-function-using/29117/3
     Base.round(x::AbstractMatrix, digits::Int = 15) = round.(x, digits = digits)
 end
 
