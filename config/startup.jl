@@ -10,6 +10,9 @@ function _addpkg(pkg)
     end
 end
 
+import OhMyREPL
+OhMyREPL.enable_autocomplete_brackets(false)
+
 if isfile("Project.toml")
     using Pkg
     Pkg.activate(".")
