@@ -1,5 +1,11 @@
-#!/usr/bin/env julia
-ENV["JULIA_EDITOR"] = "code"
+# Set up environment for Julia OSX binary distribution
+let
+    ROOT = abspath(Sys.BINDIR, "..")
+    ENV["PATH"] = "$(Sys.BINDIR):$(ENV["PATH"])"
+    ENV["FONTCONFIG_PATH"] = joinpath(ROOT, "etc", "fonts")
+    ENV["TK_LIBRARY"] = "/System/Library/Frameworks/Tk.framework/Versions/8.5/Resources/Scripts"
+    ENV["JULIA_EDITOR"] = "code"
+end
 
 function _addpkg(pkg)
     try
