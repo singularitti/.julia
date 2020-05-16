@@ -16,9 +16,6 @@ function _addpkg(pkg)
     end
 end
 
-import OhMyREPL
-OhMyREPL.enable_autocomplete_brackets(false)
-
 if isfile("Project.toml")
     using Pkg
     Pkg.activate(".")
@@ -39,4 +36,11 @@ try
     using AbstractTrees: print_tree
 catch
     _addpkg("AbstractTrees")
+end
+
+try
+    import OhMyREPL
+    OhMyREPL.enable_autocomplete_brackets(false)
+catch
+    _addpkg("OhMyREPL")
 end
