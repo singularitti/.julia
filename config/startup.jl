@@ -37,10 +37,3 @@ try
 catch
     _addpkg("AbstractTrees")
 end
-
-try
-    import OhMyREPL
-    OhMyREPL.enable_autocomplete_brackets(false)
-catch
-    _addpkg("OhMyREPL")
-end
