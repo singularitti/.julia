@@ -37,3 +37,12 @@ try
 catch
     _addpkg("AbstractTrees")
 end
+
+function typehier(x)  # From https://discourse.julialang.org/t/solved-uint-is-not-int/40038/2
+    z = typeof(x)
+    print("$z")
+    while z != Any
+        z = supertype(z)
+        print(" <: $z")
+    end
+end
