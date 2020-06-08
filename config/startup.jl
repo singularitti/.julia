@@ -29,3 +29,9 @@ try
 catch
     Pkg.add("AbstractTrees")
 end
+
+try
+    import ClearStacktrace
+catch
+    _addpkg("ClearStacktrace")
+end
