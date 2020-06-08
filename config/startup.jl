@@ -7,22 +7,14 @@ let
     ENV["JULIA_EDITOR"] = "code"
 end
 
-function _addpkg(pkg)
-    try
-        @eval using Pkg
-        Pkg.add(pkg)
-    catch e
-        @warn(e.msg)
-    end
-end
+import Pkg
 
 if isfile("Project.toml")
-    using Pkg
     Pkg.activate(".")
     try
         using Revise
     catch
-        _addpkg("Revise")
+        Pkg.add("Revise")
     end
 else
     using LinearAlgebra
@@ -35,5 +27,5 @@ try
     AbstractTrees.children(x::Type) = subtypes(x)
     using AbstractTrees: print_tree
 catch
-    _addpkg("AbstractTrees")
+    Pkg.add("AbstractTrees")
 end
