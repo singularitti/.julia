@@ -23,11 +23,11 @@ end
 
 try
     import AbstractTrees
-    AbstractTrees.children(x::Type) = subtypes(x)
-    using AbstractTrees: print_tree
 catch
     Pkg.add("AbstractTrees")
 end
+AbstractTrees.children(x::Type) = subtypes(x)
+using AbstractTrees: print_tree
 
 try
     import ClearStacktrace
