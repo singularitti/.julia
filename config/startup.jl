@@ -33,5 +33,5 @@ end
 try
     import ClearStacktrace
 catch
-    _addpkg("ClearStacktrace")
+    Pkg.add("ClearStacktrace")
 end
