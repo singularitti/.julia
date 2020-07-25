@@ -35,3 +35,14 @@ try
 catch
     Pkg.add("ClearStacktrace")
 end
+
+try
+    import ClearMethods
+catch
+    Pkg.add("ClearMethods")
+end
+
+try
+    using Unitful, UnitfulAtomic
+catch
+end
