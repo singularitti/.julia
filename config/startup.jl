@@ -17,6 +17,11 @@ if isfile("Project.toml")
     catch
         Pkg.add("Revise")
     end
+    try
+        using BenchmarkTools
+    catch
+        Pkg.add("BenchmarkTools")
+    end
 else
     using LinearAlgebra
     using Dates
