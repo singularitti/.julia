@@ -40,10 +40,11 @@ end
 try
     import ClearMethods
 catch
-    Pkg.add("ClearMethods")
 end
 
 try
     using Unitful, UnitfulAtomic
 catch
+    Pkg.add("Unitful")
+    Pkg.add("UnitfulAtomic")
 end
