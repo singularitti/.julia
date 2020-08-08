@@ -5,6 +5,7 @@ let
     ENV["FONTCONFIG_PATH"] = joinpath(ROOT, "etc", "fonts")
     ENV["TK_LIBRARY"] = "/System/Library/Frameworks/Tk.framework/Versions/8.5/Resources/Scripts"
     ENV["JULIA_EDITOR"] = "code"
+    ENV["MPLBACKEND"] = "MacOSX"
 end
 
 import Pkg
