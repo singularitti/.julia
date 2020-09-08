@@ -41,6 +41,7 @@ try
 catch
     Pkg.add("ClearStacktrace")
 end
+ClearStacktrace.LINEBREAKS[] = false
 
 try
     import ClearMethods
