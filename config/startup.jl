@@ -25,6 +25,7 @@ if isfile("Project.toml")
     try
         using OhMyREPL
         colorscheme!("Base16MaterialDarker")
+        enable_autocomplete_brackets(false)
     catch
         Pkg.add("OhMyREPL")
     end
