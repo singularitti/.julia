@@ -22,6 +22,12 @@ if isfile("Project.toml")
     catch
         Pkg.add("BenchmarkTools")
     end
+    try
+        using OhMyREPL
+        colorscheme!("Base16MaterialDarker")
+    catch
+        Pkg.add("OhMyREPL")
+    end
 else
     using LinearAlgebra
     using Dates
