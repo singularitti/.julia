@@ -42,6 +42,7 @@ catch
 end
 AbstractTrees.children(x::Type) = subtypes(x)
 using AbstractTrees: print_tree
+const pt = print_tree
 
 try
     import ClearStacktrace
