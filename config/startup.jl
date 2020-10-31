@@ -62,3 +62,19 @@ catch
     Pkg.add("Unitful")
     Pkg.add("UnitfulAtomic")
 end
+
+# See https://mmus.me/blog/importall/
+macro importall(mod)
+    quote
+        try
+            $(esc(mod))
+        catch
+            import $(mod)
+        end
+        for name in names($(esc(mod)), all=true)
+            if name ∉ (:eval, :include, :__init__)
+                @eval import .$(mod): $(Expr(:$, :name))
+            end
+        end
+    end
+end
