@@ -14,8 +14,8 @@ if isfile("Project.toml")
     Pkg.activate(".")
     try
         using Revise
-    catch
-        Pkg.add("Revise")
+    catch e
+        @warn "Error initializing Revise" exception = (e, catch_backtrace())
     end
     try
         using BenchmarkTools
