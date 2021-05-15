@@ -40,15 +40,6 @@ AbstractTrees.children(x::Type) = subtypes(x)
 using AbstractTrees: print_tree
 const pt = print_tree
 
-if VERSION <= v"1.5.3"
-    try
-        import ClearStacktrace
-    catch
-        Pkg.add("ClearStacktrace")
-    end
-    ClearStacktrace.LINEBREAKS[] = false
-end
-
 try
     using Unitful, UnitfulAtomic
 catch
