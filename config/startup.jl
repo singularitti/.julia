@@ -19,14 +19,12 @@ if isfile("Project.toml")
     try
         using BenchmarkTools
     catch
-        Pkg.add("BenchmarkTools")
     end
     try
         using OhMyREPL
         colorscheme!("Base16MaterialDarker")
         enable_autocomplete_brackets(false)
     catch
-        Pkg.add("OhMyREPL")
     end
 else
     using LinearAlgebra
@@ -37,7 +35,6 @@ end
 try
     import AbstractTrees
 catch
-    Pkg.add("AbstractTrees")
 end
 AbstractTrees.children(x::Type) = subtypes(x)
 using AbstractTrees: print_tree
@@ -55,8 +52,6 @@ end
 try
     using Unitful, UnitfulAtomic
 catch
-    Pkg.add("Unitful")
-    Pkg.add("UnitfulAtomic")
 end
 
 # See https://mmus.me/blog/importall/
