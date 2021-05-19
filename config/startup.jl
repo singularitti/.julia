@@ -7,43 +7,26 @@ let
     ENV["MPLBACKEND"] = "MacOSX"
 end
 
-import Pkg
-
 if isfile("Project.toml")
+    using Revise
+    using BenchmarkTools
+    using OhMyREPL
+    colorscheme!("Base16MaterialDarker")
+    enable_autocomplete_brackets(false)
+    using Test
+    using Pkg
     Pkg.activate(".")
-    try
-        using Revise
-    catch e
-        @warn "Error initializing Revise" exception = (e, catch_backtrace())
-    end
-    try
-        using BenchmarkTools
-    catch
-    end
-    try
-        using OhMyREPL
-        colorscheme!("Base16MaterialDarker")
-        enable_autocomplete_brackets(false)
-    catch
-    end
 else
     using LinearAlgebra
     using Dates
     →(args, f) = f(args...)  # From https://discourse.julialang.org/t/how-to-pass-multiple-arguments-to-a-function-using/29117/3
 end
 
-try
-    import AbstractTrees
-catch
-end
-AbstractTrees.children(x::Type) = subtypes(x)
-using AbstractTrees: print_tree
+import AbstractTrees: children, print_tree
+children(x::Type) = subtypes(x)
 const pt = print_tree
 
-try
-    using Unitful, UnitfulAtomic
-catch
-end
+using Unitful, UnitfulAtomic
 
 # See https://mmus.me/blog/importall/
 macro importall(mod)
