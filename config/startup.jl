@@ -19,8 +19,9 @@ if isfile("Project.toml")
 else
     using LinearAlgebra
     using Dates
-    →(args, f) = f(args...)  # From https://discourse.julialang.org/t/how-to-pass-multiple-arguments-to-a-function-using/29117/3
 end
+
+→(args, f) = f(args...)  # From https://discourse.julialang.org/t/how-to-pass-multiple-arguments-to-a-function-using/29117/3
 
 import AbstractTrees: children, print_tree
 children(x::Type) = subtypes(x)
