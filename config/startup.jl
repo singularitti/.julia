@@ -16,6 +16,24 @@ if isfile("Project.toml")
     using Test
     using Pkg
     Pkg.activate(".")
+    # From https://github.com/singularitti/vscode-julia-formatter/issues/6#issuecomment-831003507
+    using JuliaFormatter: format
+    using FileWatching: watch_folder, unwatch_folder
+    function watch_format(
+        watched_dir::AbstractString,
+        timeout_sec::Real = -1,
+        debounce_time_sec::Real = 1,
+    )
+        while true
+            file_changed, change_info = watch_folder(watched_dir, timeout_sec)
+            if change_info.changed
+                println(file_changed)
+                format(watched_dir)
+            end
+            unwatch_folder(watched_dir)
+            sleep(debounce_time_sec)
+        end
+    end
 else
     using LinearAlgebra
     using Dates
