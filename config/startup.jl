@@ -44,6 +44,8 @@ end
 import AbstractTrees: children, print_tree
 children(x::Type) = subtypes(x)
 const pt = print_tree
+using InteractiveUtils: supertypes
+const st = supertypes 
 
 using Unitful, UnitfulAtomic
 
