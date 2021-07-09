@@ -42,7 +42,7 @@ end
 →(args, f) = f(args...)  # From https://discourse.julialang.org/t/how-to-pass-multiple-arguments-to-a-function-using/29117/3
 
 using InteractiveUtils: supertypes
-const st = supertypes 
+const st = supertypes
 
 using Unitful, UnitfulAtomic
 
